@@ -2,15 +2,14 @@
 
 /*
 * int *a;
-*   pointer, stores memory address of variable
+*   1. a -> memory address of another variable
+*   2. *a -> value at memory address of other variable
+*   3. &a -> memory address of a 
 *
 * int b = 10;
-*   &b -> memory address of b
-*
-* Working with pointers.
-*   *a -> value at memory addres
-*   a -> stored memory address
-*   &a -> memory address of a
+*   1. b -> value of b
+*   2. &b -> memory address of b
+*   3. *p -> does not exist
 */
 
 
@@ -25,9 +24,11 @@ int showNum(int a, int b) {
 
 }
 
+// change value of a to 100;
 int change(int *a) {
   *a = 100;
 }
+
 int main() {
   int a = 20; 
   int b = 10;  
@@ -36,6 +37,8 @@ int main() {
   change(&a);
 
   showNum(a, 0);
+
+  printf("%p\n", &a);
 
   return 0;
 }
