@@ -9,12 +9,19 @@
 * int b = 10;
 *   1. b -> value of b
 *   2. &b -> memory address of b
-*   3. *p -> does not exist
+*   3. *b -> does not exist
 */
-
+/*
+  If you want to change the value of something through side effects,
+  get that value's memory address (&value) and then reassign its value
+  (*value) to something else
+*/
 
 int swap(int *a, int *b) {
   int t = *a;
+  printf("value at a: %d\n", *a);
+  printf("memory address of a: %p\n", a);
+  printf("memory address of copied a: %p\n", &a);
   *a = *b;
   *b = *a;
 }
@@ -32,13 +39,13 @@ int change(int *a) {
 int main() {
   int a = 20; 
   int b = 10;  
-  showNum(a, 0);
 
-  change(&a);
+  printf("memory address of a: %p\n", &a);
 
-  showNum(a, 0);
+  swap(&a, &b);
 
-  printf("%p\n", &a);
 
   return 0;
 }
+
+
